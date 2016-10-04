@@ -1,7 +1,7 @@
 
 ### Instalanado a gem
 ```
-gem "correios_api", :git => "git://github.com/caverna-labs/moip_api.git"
+gem "correios_api", :git => "git@github.com:caverna-labs/correios_api.git"
 ```
 
 ### Configurando dados de ambiente
