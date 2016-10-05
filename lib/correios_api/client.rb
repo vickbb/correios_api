@@ -4,7 +4,7 @@ module CorreiosETC
 		attr_accessor :env
 		attr_reader :client
 
-		def initialize(env = :development)
+		def initialize(env = CorreiosETC.environment)
 			@uri = get_base_uri
 	    @env = env.to_sym
 

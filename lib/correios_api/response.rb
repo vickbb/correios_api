@@ -2,7 +2,7 @@ module CorreiosETC
 
   class Response < SimpleDelegator
 
-    def initialize(code, json)
+    def initialize(code=200, json)
       super(RecursiveOpenStruct.new(json, :recurse_over_arrays => true))
       @code = code
     end
