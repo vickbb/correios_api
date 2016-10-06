@@ -8,11 +8,11 @@ module CorreiosETC
       end
 
       def call(xml, id_plp_client, etiquetas)
-        plp = { xml: xml, idPlpCliente: id_plp_client, listaEtiquetas: etiquetas, usuario: CorreiosETC.user, senha: CorreiosETC.password }
+        plp = { xml: xml, idPlpCliente: id_plp_client, listaEtiquetas: etiquetas, usuario: CorreiosETC.user, senha: CorreiosETC.password, cartaoPostagem: CorreiosETC.card }
 
         response = client.call_request :fecha_plp_varios_servicos, plp
 
-        return response
+        return response.fecha_plp_varios_servicos_response.return
       end
 
     end

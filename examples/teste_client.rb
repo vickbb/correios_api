@@ -2,29 +2,33 @@ require 'correios_api'
 require_relative './configuration'
 require 'pry'
 
-client = CorreiosETC::Client.new
+api = CorreiosETC::Api.new
 
-cep = {cep: '64023400'}
+cod_serv = 81019
+servico = 104672
+postages = []
 
-busca_cliente = {idContrato: CorreiosETC.contract, idCartaoPostagem: CorreiosETC.card, usuario: CorreiosETC.user, senha: CorreiosETC.password }
+sender = CorreiosETC::Resource::Sender.new({name: "joao", street: " ef e few fewewf", number: "343", complement: "", district: "", zip_code: "69309560", city: "teresina", state: "RJ", phone: "86994211487"})
 
-etiquetas = {tipoDestinatario: 'c', identificador: CorreiosETC.cnpj, idServico: '104672', qtdEtiquetas: 2, usuario: CorreiosETC.user, senha: CorreiosETC.password}
+receiver = CorreiosETC::Resource::Receiver.new({name: "pedro", street: " ef e few fewewf", number: "343", complement: "", district: "", zip_code: "64023400", city: "teresina", state: "PI", phone: "86994211487", text: 'asdsadsa dassa dsasasda'})
 
+etiquetas = api.solicita_etiquetas(servico, 3)
+digitos = api.digito_verificador_etiquetas(etiquetas)
 
-
-result_cep = client.call_request :consulta_cep, cep
-
-result_client = client.call_request :busca_cliente, busca_cliente
-
-result_etiqueta = client.call_request :solicita_etiquetas, etiquetas
-
-digito = {usuario: CorreiosETC.user, senha: CorreiosETC.password, etiquetas: result_etiqueta.solicita_etiquetas_response.return.split(",")}
-result_digito = client.call_request :gera_digito_verificador_etiquetas, digito
-
-servicos = []
-result_client.busca_cliente_response.return.contratos.cartoes_postagem.servicos.each do |servico|
-  item = {nome: servico.descricao, id: servico.id.to_i, codigo: servico.codigo.to_i}
-  servicos << CorreiosETC::Response.new(200, item)
+etiquetas.each do |etiqueta, i|
+  postages << CorreiosETC::Resource::Postage.new({ticket: etiqueta.gsub(' ', digitos[0]), service: cod_serv, weight: 800, type_object: 1, height: 16, width: 10, length: 10, receiver: receiver})
 end
+plp = CorreiosETC::Resource::Plp.new({sender: sender, postages: postages})
+
+tickts = etiquetas.map{|x| x.gsub(' ', '')}
+
+fecha_plp = api.fecha_plp(plp.get_xml, 542234, tickts)
+
+
+call_plp = { xml: plp.get_xml, idPlpCliente: 542234, listaEtiquetas: tickts, usuario: CorreiosETC.user, senha: CorreiosETC.password, cartaoPostagem: CorreiosETC.card }
+
+response = client.call_request :fecha_plp_varios_servicos, call_plp
+# solicita_plp = api.solicita_xml_plp(fecha_plp.id)
+
 binding.pry
 

@@ -8,7 +8,7 @@ module CorreiosETC
       end
 
       def call(id_plp)
-        plp = { idPlpMaster: '1234567', usuario: CorreiosETC.user, senha: CorreiosETC.password }
+        plp = { idPlpMaster: '1234567', usuario: CorreiosETC.user, senha: CorreiosETC.password, cartaoPostagem: CorreiosETC.card }
 
         response = client.call_request :solicita_xml_plp, plp
 

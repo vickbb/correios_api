@@ -3,16 +3,16 @@ module CorreiosETC
     class Sender
       include ActiveData::Model
 
-      attribute :name, type: String
-      attribute :street, type: String
-      attribute :number, type: String
-      attribute :complement, type: String
-      attribute :district, type: String
-      attribute :zip_code, type: String
-      attribute :city, type: String
-      attribute :state, type: String
-      attribute :phone, type: String
-      attribute :email, type: String, default: 'BRA'
+      attribute :name, type: String, default: ''
+      attribute :street, type: String, default: ''
+      attribute :number, type: String, default: ''
+      attribute :complement, type: String, default: ''
+      attribute :district, type: String, default: ''
+      attribute :zip_code, type: String, default: ''
+      attribute :city, type: String, default: ''
+      attribute :state, type: String, default: ''
+      attribute :phone, type: String, default: ''
+      attribute :email, type: String, default: ''
 
     end
   end
