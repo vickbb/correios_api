@@ -14,7 +14,7 @@ require 'correios_api/version'
 
 require 'correios_api/methods/busca_cliente'
 require 'correios_api/methods/consulta_cep'
-require 'correios_api/methods/digito_veridicador_etiquetas'
+require 'correios_api/methods/digito_verificador_etiquetas'
 require 'correios_api/methods/fechar_plp'
 require 'correios_api/methods/solitica_etiquetas'
 require 'correios_api/methods/solitica_xml_plp'
@@ -22,6 +22,7 @@ require 'correios_api/methods/solitica_xml_plp'
 require 'correios_api/resource/postage'
 require 'correios_api/resource/receiver'
 require 'correios_api/resource/sender'
+require 'correios_api/resource/plp'
 
 module CorreiosETC
 	class << self
