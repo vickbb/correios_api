@@ -11,6 +11,7 @@ module CorreiosETC
       attribute :width, type: Integer, default: 0
       attribute :length, type: Integer, default: 0
       attribute :diameter, type: Integer, default: 0
+      attribute :receiver, type: Object
 
     end
   end
