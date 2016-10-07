@@ -148,7 +148,7 @@ receiver = CorreiosETC::Resource::Receiver.new({name: "pedro", street: " ef e fe
 
 # cria um ou mas objetos postage que seram enviados
 postages = []
-etiquetas.each do |etiqueta, i|
+etiquetas.each_with_index do |etiqueta, i|
   postages << CorreiosETC::Resource::Postage.new({ticket: etiqueta.gsub(' ', digitos[i]), service: cod_serv, weight: '800', type_object: 1, height: 16, width: 10, length: 10, receiver: receiver})
 end
 
@@ -171,7 +171,7 @@ require 'correios_api'
 api = CorreiosETC::Api.new
 
 # chamada do metodo
-solicita_plp = api.solicita_xml_plp(fecha_plp.id)
+solicita_plp = api.solicita_xml_plp(fecha_plp)
 ```
 
 ## Contribuições
