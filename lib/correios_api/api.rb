@@ -34,6 +34,11 @@ module CorreiosETC
       request.call(id_plp)
     end
 
+    def calcula_preco_prazo(params)
+      request = Methods::CalculaPrecoPrazo.new(params)
+      request.call
+    end
+
   end
 end
 

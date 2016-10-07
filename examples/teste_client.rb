@@ -16,7 +16,7 @@ etiquetas = api.solicita_etiquetas(servico, 3)
 digitos = api.digito_verificador_etiquetas(etiquetas)
 
 etiquetas.each do |etiqueta, i|
-  postages << CorreiosETC::Resource::Postage.new({ticket: etiqueta.gsub(' ', digitos[0]), service: cod_serv, weight: 800, type_object: 1, height: 16, width: 10, length: 10, receiver: receiver})
+  postages << CorreiosETC::Resource::Postage.new({ticket: etiqueta.gsub(' ', digitos[0]), service: cod_serv, weight: '800', type_object: 1, height: 16, width: 10, length: 10, receiver: receiver})
 end
 plp = CorreiosETC::Resource::Plp.new({sender: sender, postages: postages})
 
