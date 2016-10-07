@@ -8,6 +8,10 @@ cod_serv = 81019
 servico = 104672
 postages = []
 
+preco_prazo = CorreiosETC::Resource::CalculaPrecoPrazo.new({service: '81019,41068,40096', cep_sender:  '69309560', cep_receiver:  '64023400', weight:  '0,4'})
+
+api.calcula_preco_prazo(preco_prazo)
+
 sender = CorreiosETC::Resource::Sender.new({name: "joao", street: " ef e few fewewf", number: "343", complement: "", district: "", zip_code: "69309560", city: "teresina", state: "RJ", phone: "86994211487"})
 
 receiver = CorreiosETC::Resource::Receiver.new({name: "pedro", street: " ef e few fewewf", number: "343", complement: "", district: "", zip_code: "64023400", city: "teresina", state: "PI", phone: "86994211487", text: 'asdsadsa dassa dsasasda'})
