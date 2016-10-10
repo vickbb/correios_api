@@ -1,4 +1,4 @@
-module CorreiosETC
+module CorreiosECT
   module Resource
     class Plp
       include ActiveData::Model
@@ -8,7 +8,7 @@ module CorreiosETC
 
       def get_xml
         objetos = objeto_postal
-        xml = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\" ?><correioslog><tipo_arquivo>Postagem</tipo_arquivo><versao_arquivo>2.3</versao_arquivo><plp><id_plp/><valor_global/><mcu_unidade_postagem/><nome_unidade_postagem/><cartao_postagem>#{CorreiosETC.card}</cartao_postagem></plp><remetente><numero_contrato>#{CorreiosETC.contract}</numero_contrato><codigo_administrativo>#{CorreiosETC.administrative_code}</codigo_administrativo><nome_remetente><![CDATA[#{sender.name}]]></nome_remetente><logradouro_remetente><![CDATA[#{sender.street}]]></logradouro_remetente><numero_remetente><![CDATA[#{sender.number}]]></numero_remetente><complemento_remetente><![CDATA[#{sender.complement}]]></complemento_remetente><bairro_remetente><![CDATA[#{sender.district}]]></bairro_remetente><cep_remetente><![CDATA[#{sender.zip_code}]]></cep_remetente><cidade_remetente><![CDATA[#{sender.city}]]></cidade_remetente><uf_remetente>#{sender.state}</uf_remetente><telefone_remetente><![CDATA[#{sender.phone}]]></telefone_remetente><fax_remetente><![CDATA[]]></fax_remetente><email_remetente><![CDATA[#{sender.email}]]></email_remetente></remetente><forma_pagamento/>#{objetos}</correioslog>"
+        xml = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\" ?><correioslog><tipo_arquivo>Postagem</tipo_arquivo><versao_arquivo>2.3</versao_arquivo><plp><id_plp/><valor_global/><mcu_unidade_postagem/><nome_unidade_postagem/><cartao_postagem>#{CorreiosECT.card}</cartao_postagem></plp><remetente><numero_contrato>#{CorreiosECT.contract}</numero_contrato><codigo_administrativo>#{CorreiosECT.administrative_code}</codigo_administrativo><nome_remetente><![CDATA[#{sender.name}]]></nome_remetente><logradouro_remetente><![CDATA[#{sender.street}]]></logradouro_remetente><numero_remetente><![CDATA[#{sender.number}]]></numero_remetente><complemento_remetente><![CDATA[#{sender.complement}]]></complemento_remetente><bairro_remetente><![CDATA[#{sender.district}]]></bairro_remetente><cep_remetente><![CDATA[#{sender.zip_code}]]></cep_remetente><cidade_remetente><![CDATA[#{sender.city}]]></cidade_remetente><uf_remetente>#{sender.state}</uf_remetente><telefone_remetente><![CDATA[#{sender.phone}]]></telefone_remetente><fax_remetente><![CDATA[]]></fax_remetente><email_remetente><![CDATA[#{sender.email}]]></email_remetente></remetente><forma_pagamento/>#{objetos}</correioslog>"
       end
 
 

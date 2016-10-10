@@ -1,14 +1,14 @@
-module CorreiosETC
+module CorreiosECT
   module Methods
     class SolicitaEtiquetas
       attr_reader :client
 
       def initialize
-        @client = CorreiosETC::Client.new
+        @client = CorreiosECT::Client.new
       end
 
       def call(id_servico, qnt, tipo = 'c')
-        etiquetas = {tipoDestinatario: tipo, identificador: CorreiosETC.cnpj, idServico: id_servico, qtdEtiquetas: qnt, usuario: CorreiosETC.user, senha: CorreiosETC.password}
+        etiquetas = {tipoDestinatario: tipo, identificador: CorreiosECT.cnpj, idServico: id_servico, qtdEtiquetas: qnt, usuario: CorreiosECT.user, senha: CorreiosECT.password}
         response = client.call_request :solicita_etiquetas, etiquetas
         tickets = []
         tickets_range = response.solicita_etiquetas_response.return.split(",")

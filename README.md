@@ -19,7 +19,7 @@ A biblioteca Correios em Ruby é um conjunto de classes de domínio que facilita
 - Adicione a biblioteca ao seu Gemfile.
 
 ```ruby
-gem "correios_api", :git => "git@github.com:caverna-labs/correios_api.git"
+gem "correios_api", github: "caverna-labs/correios_api"
 ```
 
  - Execute o comando `bundle install`.
@@ -27,7 +27,7 @@ gem "correios_api", :git => "git@github.com:caverna-labs/correios_api.git"
 Para fazer a autenticação, você precisará configurar as credenciais dos Correios(link do manual do ambiente de desenvolvimento: http://www.corporativo.correios.com.br/encomendas/sigepweb/doc/Manual_de_Implementacao_do_Web_Service_SIGEPWEB_Logistica_Reversa.pdf). Crie o arquivo `config/initializers/correios.rb` com o conteúdo abaixo.
 
 ```ruby
-CorreiosETC.configure do |config|
+CorreiosECT.configure do |config|
   config.cnpj= "CNPJ"
   config.user= "Usuário"
   config.password = "Senha"
@@ -48,7 +48,7 @@ cartão de postagem. Este método pode ser utilizado periodicamente para atualiz
 require 'correios_api'
 
 # inicializa a api
-api = CorreiosETC::Api.new
+api = CorreiosECT::Api.new
 
 # chamada do metodo
 api.busca_cliente()
@@ -60,7 +60,7 @@ api.busca_cliente()
 require 'correios_api'
 
 # inicializa a api
-api = CorreiosETC::Api.new
+api = CorreiosECT::Api.new
 
 # chamada do metodo
 api.consulta_cep('64023400')
@@ -75,7 +75,7 @@ O calculador de preços e prazos de encomendas dos Correios é destinado aos cli
 require 'correios_api'
 
 # inicializa a api
-api = CorreiosETC::Api.new
+api = CorreiosECT::Api.new
 
 # cria objeto a ser consultado (os parâmetos mínimos solicitatods pela api)
 # todos os parâmetos disponíveis
@@ -93,7 +93,7 @@ own_hand: 'Indica se a encomenda será entregue com o serviço adicional mão pr
 receiving_notice: 'Indica se a encomenda será entregue com o serviço adicional aviso de recebimento. Valores possíveis: S ou N (S – Sim, N – Não)'
 
 # criando objeto
-preco_prazo = CorreiosETC::Resource::CalculaPrecoPrazo.new({service: '81019,41068,40096', cep_sender:  '69309560', cep_receiver:  '64023400', weight:  '0,4'})
+preco_prazo = CorreiosECT::Resource::CalculaPrecoPrazo.new({service: '81019,41068,40096', cep_sender:  '69309560', cep_receiver:  '64023400', weight:  '0,4'})
 
 # chamada do metodo
 api.calcula_preco_prazo(preco_prazo)
@@ -108,7 +108,7 @@ sendo utilizado como chave para rastreamento.
 require 'correios_api'
 
 # inicializa a api
-api = CorreiosETC::Api.new
+api = CorreiosECT::Api.new
 
 # chamada do metodo
 servico = 104672 #código do servico obitido no metodo busca_cliente()
@@ -124,7 +124,7 @@ Este método retorna o dígito verificador de uma etiqueta ou um array.
 require 'correios_api'
 
 # inicializa a api
-api = CorreiosETC::Api.new
+api = CorreiosECT::Api.new
 
 # chamada do metodo
 digitos = api.digito_verificador_etiquetas(etiquetas)
@@ -138,22 +138,22 @@ Este método é responsável por enviar as informações dos objetos que serão 
 require 'correios_api'
 
 # inicializa a api
-api = CorreiosETC::Api.new
+api = CorreiosECT::Api.new
 
 # criar objeto do remetente
-sender = CorreiosETC::Resource::Sender.new({name: "joao", street: " ef e few fewewf", number: "343", complement: "", district: "", zip_code: "69309560", city: "teresina", state: "RJ", phone: "86994211487"})
+sender = CorreiosECT::Resource::Sender.new({name: "joao", street: " ef e few fewewf", number: "343", complement: "", district: "", zip_code: "69309560", city: "teresina", state: "RJ", phone: "86994211487"})
 
 # criar objeto do destinatário
-receiver = CorreiosETC::Resource::Receiver.new({name: "pedro", street: " ef e few fewewf", number: "343", complement: "", district: "", zip_code: "64023400", city: "teresina", state: "PI", phone: "86994211487", text: 'asdsadsa dassa dsasasda'})
+receiver = CorreiosECT::Resource::Receiver.new({name: "pedro", street: " ef e few fewewf", number: "343", complement: "", district: "", zip_code: "64023400", city: "teresina", state: "PI", phone: "86994211487", text: 'asdsadsa dassa dsasasda'})
 
 # cria um ou mas objetos postage que seram enviados
 postages = []
 etiquetas.each_with_index do |etiqueta, i|
-  postages << CorreiosETC::Resource::Postage.new({ticket: etiqueta.gsub(' ', digitos[i]), service: cod_serv, weight: '800', type_object: 1, height: 16, width: 10, length: 10, receiver: receiver})
+  postages << CorreiosECT::Resource::Postage.new({ticket: etiqueta.gsub(' ', digitos[i]), service: cod_serv, weight: '800', type_object: 1, height: 16, width: 10, length: 10, receiver: receiver})
 end
 
 # cria objeto plp que ira gerar o xml para fechar a plp
-plp = CorreiosETC::Resource::Plp.new({sender: sender, postages: postages})
+plp = CorreiosECT::Resource::Plp.new({sender: sender, postages: postages})
 
 # chamada do metodo
 tickts = etiquetas.map{|x| x.gsub(' ', '')}
@@ -168,7 +168,7 @@ Este método retorna o mesmo xml da PLP que foi anteriormente enviada pelo clien
 require 'correios_api'
 
 # inicializa a api
-api = CorreiosETC::Api.new
+api = CorreiosECT::Api.new
 
 # chamada do metodo
 solicita_plp = api.solicita_xml_plp(fecha_plp)

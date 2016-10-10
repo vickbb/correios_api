@@ -3,10 +3,13 @@ PATH
   specs:
     correios_api (0.0.1)
       active_data
+      coveralls
       net-http-persistent (~> 2.9.4)
       rack (~> 1.6, >= 1.6.4)
       recursive-open-struct
       savon (~> 2.0)
+      simplecov (~> 0.9)
+      webmock (~> 1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -51,11 +54,9 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.9.1)
     net-http-persistent (2.9.4)
-    nokogiri (1.6.8)
+    nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
-      pkg-config (~> 1.1.7)
     nori (2.6.0)
-    pkg-config (1.1.7)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -113,12 +114,9 @@ PLATFORMS
 DEPENDENCIES
   bundler
   correios_api!
-  coveralls
   pry
   rake
   rspec
-  simplecov (~> 0.9)
-  webmock (~> 1.0)
 
 BUNDLED WITH
-   1.13.1
+   1.13.2

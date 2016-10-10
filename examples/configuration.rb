@@ -1,4 +1,4 @@
-CorreiosETC.configure do |config|
+CorreiosECT.configure do |config|
   config.cnpj=ENV['ECT_CNPJ']
   config.user=ENV['ECT_USER']
   config.password = ENV['ECT_PASSWORD']

@@ -4,7 +4,7 @@ require "correios_api/version"
 
 Gem::Specification.new do |spec|
 	spec.name          = "correios_api"
-	spec.version       = CorreiosETC::VERSION
+	spec.version       = CorreiosECT::VERSION
 	spec.authors       = ["Renato Filho", "Pedro Fausto"]
 	spec.email         = ["renatosousafilho@gmail.com", "pedro.fausto@hotmail.com"]
 	spec.summary       = %q{Cliente ruby para api correios}

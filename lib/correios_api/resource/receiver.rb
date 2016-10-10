@@ -1,4 +1,4 @@
-module CorreiosETC
+module CorreiosECT
   module Resource
     class Receiver
       include ActiveData::Model

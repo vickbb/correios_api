@@ -26,7 +26,7 @@ require 'correios_api/resource/receiver'
 require 'correios_api/resource/sender'
 require 'correios_api/resource/plp'
 
-module CorreiosETC
+module CorreiosECT
 	class << self
 
     extend Forwardable

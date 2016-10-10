@@ -1,10 +1,10 @@
-module CorreiosETC
+module CorreiosECT
 	class Client
 
 		attr_accessor :env
 		attr_reader :client
 
-		def initialize(env = CorreiosETC.environment)
+		def initialize(env = CorreiosECT.environment)
 			@uri = get_base_uri
 	    @env = env.to_sym
 

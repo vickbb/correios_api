@@ -1,10 +1,10 @@
-module CorreiosETC
+module CorreiosECT
   module Methods
     class ConsultaCep
       attr_reader :client
 
       def initialize
-        @client = CorreiosETC::Client.new
+        @client = CorreiosECT::Client.new
       end
 
       def call(cep='')

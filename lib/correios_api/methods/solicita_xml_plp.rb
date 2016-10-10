@@ -1,14 +1,14 @@
-module CorreiosETC
+module CorreiosECT
   module Methods
     class SolicitaXmlPlp
       attr_reader :client
 
       def initialize
-        @client = CorreiosETC::Client.new
+        @client = CorreiosECT::Client.new
       end
 
       def call(id_plp)
-        plp = { idPlpMaster: id_plp, usuario: CorreiosETC.user, senha: CorreiosETC.password }
+        plp = { idPlpMaster: id_plp, usuario: CorreiosECT.user, senha: CorreiosECT.password }
 
         response = client.call_request :solicita_xml_plp, plp
 

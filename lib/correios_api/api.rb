@@ -1,4 +1,4 @@
-module CorreiosETC
+module CorreiosECT
   class Api
 
     def initialize

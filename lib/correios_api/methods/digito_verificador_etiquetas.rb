@@ -1,14 +1,14 @@
-module CorreiosETC
+module CorreiosECT
   module Methods
     class DigitoVerificadorEtiquetas
       attr_reader :client
 
       def initialize
-        @client = CorreiosETC::Client.new
+        @client = CorreiosECT::Client.new
       end
 
       def call(etiquetas)
-        digito = {usuario: CorreiosETC.user, senha: CorreiosETC.password, etiquetas: etiquetas}
+        digito = {usuario: CorreiosECT.user, senha: CorreiosECT.password, etiquetas: etiquetas}
         response = client.call_request :gera_digito_verificador_etiquetas, digito
         if etiquetas.size == 1
           d = []
