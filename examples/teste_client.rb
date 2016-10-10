@@ -8,9 +8,9 @@ cod_serv = 81019
 servico = 104672
 postages = []
 
-preco_prazo = CorreiosETC::Resource::CalculaPrecoPrazo.new({service: '81019,41068,40096', cep_sender:  '69309560', cep_receiver:  '64023400', weight:  '0,4'})
+# preco_prazo = CorreiosETC::Resource::CalculaPrecoPrazo.new({service: '81019,41068,40096', cep_sender:  '69309560', cep_receiver:  '64023400', weight:  '0,4'})
 
-api.calcula_preco_prazo(preco_prazo)
+# api.calcula_preco_prazo(preco_prazo)
 
 sender = CorreiosETC::Resource::Sender.new({name: "joao", street: " ef e few fewewf", number: "343", complement: "", district: "", zip_code: "69309560", city: "teresina", state: "RJ", phone: "86994211487"})
 
@@ -27,7 +27,9 @@ plp = CorreiosETC::Resource::Plp.new({sender: sender, postages: postages})
 tickts = etiquetas.map{|x| x.gsub(' ', '')}
 
 fecha_plp = api.fecha_plp(plp.get_xml, 542234, tickts)
+puts fecha_plp
 
-solicita_plp = api.solicita_xml_plp(fecha_plp)
-
+id_plp = '199438'
 binding.pry
+# solicita_plp = api.solicita_xml_plp(fecha_plp)
+

@@ -26,9 +26,9 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'rack', '~> 1.6', '>= 1.6.4'
   spec.add_dependency 'savon', '~> 2.0'
 
-  spec.add_development_dependency 'coveralls'
-  spec.add_development_dependency 'simplecov', '~> 0.9'
-  spec.add_development_dependency 'webmock', '~> 1.0'
+  spec.add_dependency 'coveralls'
+  spec.add_dependency 'simplecov', '~> 0.9'
+  spec.add_dependency 'webmock', '~> 1.0'
 
 	spec.add_development_dependency "bundler"
 	spec.add_development_dependency "rake"
