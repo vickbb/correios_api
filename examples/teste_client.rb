@@ -29,7 +29,7 @@ tickts = etiquetas.map{|x| x.gsub(' ', '')}
 fecha_plp = api.fecha_plp(plp.get_xml, 542234, tickts)
 puts fecha_plp
 
-id_plp = '199438'
+id_plp = '199438' #199438
 binding.pry
 # solicita_plp = api.solicita_xml_plp(fecha_plp)
 

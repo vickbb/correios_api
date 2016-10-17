@@ -16,7 +16,13 @@ module CorreiosECT
         a2 = tickets_range[1].gsub(/[A-z\s]/, '').to_i
         count = a2 - a1 + 1
         count.times do |i|
-          tickets << tickets_range[0].gsub(/\d/, '').gsub(' ', "#{a1+i} ")
+          b = "#{a1+i}"
+          unless b.size == 8
+            (8-b.size).times do
+              b = "0#{b}"
+            end
+          end
+          tickets << tickets_range[0].gsub(/\d/, '').gsub(' ', "#{b} ")
         end
 
         return tickets
