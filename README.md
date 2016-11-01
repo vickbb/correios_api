@@ -149,7 +149,7 @@ receiver = CorreiosECT::Resource::Receiver.new({name: "pedro", street: " ef e fe
 # cria um ou mas objetos postage que seram enviados
 postages = []
 etiquetas.each_with_index do |etiqueta, i|
-  postages << CorreiosECT::Resource::Postage.new({ticket: etiqueta.gsub(' ', digitos[i]), service: cod_serv, weight: '800', type_object: 1, height: 16, width: 10, length: 10, receiver: receiver})
+  postages << CorreiosECT::Resource::Postage.new({ticket: etiqueta.gsub(' ', digitos[i]), service: cod_serv, weight: '800', height: 16, width: 10, length: 10, receiver: receiver})
 end
 
 # cria objeto plp que ira gerar o xml para fechar a plp

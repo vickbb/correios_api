@@ -12,11 +12,11 @@ postages = []
 
 # api.calcula_preco_prazo(preco_prazo)
 
-sender = CorreiosECT::Resource::Sender.new({name: "joao", street: " ef e few fewewf", number: "343", complement: "", district: "", zip_code: "69309560", city: "teresina", state: "RJ", phone: "86994211487"})
+sender = CorreiosECT::Resource::Sender.new({name: "joao", street: "Rua das Mil Flores", number: "343", complement: "", district: "Pricumã", zip_code: "69309560", city: "Boa Vista", state: "RR", phone: "86994211487"})
 
-receiver = CorreiosECT::Resource::Receiver.new({name: "pedro", street: " ef e few fewewf", number: "343", complement: "", district: "", zip_code: "64023400", city: "teresina", state: "PI", phone: "86994211487", text: 'asdsadsa dassa dsasasda'})
+receiver = CorreiosECT::Resource::Receiver.new({name: "pedro", street: "epitacio pessoa", number: "343", complement: "", district: "lourival parente", zip_code: "64023400", city: "teresina", state: "PI", phone: "86994211487", text: 'asdsadsa dassa dsasasda'})
 
-etiquetas = api.solicita_etiquetas(servico, 3)
+etiquetas = api.solicita_etiquetas(servico, 1)
 digitos = api.digito_verificador_etiquetas(etiquetas)
 
 etiquetas.each_with_index do |etiqueta, i|
@@ -29,7 +29,7 @@ tickts = etiquetas.map{|x| x.gsub(' ', '')}
 fecha_plp = api.fecha_plp(plp.get_xml, 542234, tickts)
 puts fecha_plp
 
-id_plp = '199438' #199438
+id_plp = '203596'
 binding.pry
 # solicita_plp = api.solicita_xml_plp(fecha_plp)
 
