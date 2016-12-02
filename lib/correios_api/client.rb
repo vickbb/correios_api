@@ -2,11 +2,11 @@ module CorreiosECT
 	class Client
 
 		attr_accessor :env
-		attr_reader :client
+		attr_reader :client, :uri
 
 		def initialize(env = CorreiosECT.environment)
-			@uri = get_base_uri
 	    @env = env.to_sym
+			@uri = get_base_uri
 
 			@client = Savon.client(opts)
 		end
@@ -33,7 +33,6 @@ module CorreiosECT
 			Response.new resp.http.code, resp.body
 		end
 
-		private
 		def get_base_uri
 			if production?
 				'https://apps.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente?wsdl'
