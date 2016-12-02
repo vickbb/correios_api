@@ -36,6 +36,7 @@ module CorreiosECT
 		private
 		def get_base_uri
 			if production?
+				'https://apps.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente?wsdl'
 			else
 				"https://apphom.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente?wsdl"
 			end
