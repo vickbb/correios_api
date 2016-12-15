@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
 	spec.add_dependency "recursive-open-struct"
 	spec.add_dependency "active_data"
 
-	spec.add_dependency 'net-http-persistent'
+	spec.add_dependency 'net-http-persistent', '~> 2.9.4'
   spec.add_dependency 'rack'
   spec.add_dependency 'savon'
 
