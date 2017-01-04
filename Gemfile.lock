@@ -5,7 +5,7 @@ PATH
       active_data
       coveralls
       net-http-persistent (~> 2.9.4)
-      rack (~> 2.0.1)
+      rack (>= 1.6)
       recursive-open-struct
       savon (~> 2.11.1)
       simplecov (~> 0.9)
