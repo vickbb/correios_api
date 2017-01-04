@@ -14,6 +14,7 @@ A biblioteca Correios em Ruby é um conjunto de classes de domínio que facilita
  
 ## Requisitos
  - [Ruby] 2.3.0+
+ - Para o rails 5 no arquivo `correios_api.gemspec atualize` a versao do `'rack', '>= 1.6'` para `'rack', '~> 2.0.1'`
  
 ## Instalação
 - Adicione a biblioteca ao seu Gemfile.
