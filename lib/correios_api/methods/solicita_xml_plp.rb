@@ -10,9 +10,9 @@ module CorreiosECT
       def call(id_plp)
         plp = { idPlpMaster: id_plp, usuario: CorreiosECT.user, senha: CorreiosECT.password }
 
-        response = client.call_request :solicita_xml_plp, plp
+        response = @client.call_request :solicita_xml_plp, plp
 
-        return response.solicita_xml_plp_response.return
+        return CorreiosECT::Response.new(Hash.from_xml(response.solicita_xml_plp_response.return)).correioslog
       end
 
     end

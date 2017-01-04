@@ -9,8 +9,8 @@ module CorreiosECT
       attribute :weight, type: String
       attribute :type_object, type: Integer, default: 1
       attribute :height, type: Integer, default: 20
-      attribute :width, type: Integer, default: 20
-      attribute :length, type: Integer, default: 20
+      attribute :width, type: Integer, default: 30
+      attribute :length, type: Integer, default: 38
       attribute :diameter, type: Integer, default: 0
       attribute :value, type: String, default: '0'
       attribute :own_hand, type: String, default: 'n'

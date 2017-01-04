@@ -1,5 +1,5 @@
 require 'correios_api'
-require_relative './configuration'
+require_relative './config/configuration'
 require 'pry'
 
 api = CorreiosECT::Api.new
@@ -29,7 +29,9 @@ tickts = etiquetas.map{|x| x.gsub(' ', '')}
 fecha_plp = api.fecha_plp(plp.get_xml, 542234, tickts)
 puts fecha_plp
 
-id_plp = '203596'
+id_plp = '65841490'
 binding.pry
-# solicita_plp = api.solicita_xml_plp(fecha_plp)
+
+
+# solicita_plp = api.solicita_xml_plp(id_plp)
 
